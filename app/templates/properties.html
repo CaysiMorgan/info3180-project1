@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block main %}
+{% if properties%}
+
+    <h1 id="p-heading">Properties</h1>
+    <ul  class="img-grid">
+    
+    {% for property in properties %}
+       <li>
+            <div class="card"><img src="{{ url_for('get_img', filename=property.photo) }}"  height="200px" width="100%"/>
+                <h5>{{property.title }}</h5>
+                <p>{{property.prop_location }}</p>
+                <button class="price" disabled>{{property.price }}</button>
+                <form action="{{url_for('view_property', propertyid=property.id)}}">
+                    <button class="p-btn" type="submit" = "">View Property</button>
+                </form>
+            </div>
+        </li> 
+    {% endfor %}
+</ul>
+</div>
+{% endif%}
+{% endblock %}

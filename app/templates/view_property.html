@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="p-container">
+    <img id="property" src="{{ url_for('get_img', filename=property.photo) }}"  height="350px" width="350px"/>
+    <div class="details"><h4>{{property.title}}</h4>
+        <button class="price" disabled>${{property.price }}</button>
+        <button class="type" disabled>{{property.prop_type }}</button>
+        <p>{{property.desc}}</p>
+
+        <div style="display: flex; column-gap: 20px;">
+        <p > {{property.num_bed}} <span class="material-symbols-outlined">
+            bed</span> Bedrooms</p> 
+        <p > {{property.num_bath}} <span class="material-symbols-outlined">
+            bathtub</span></i> Bathrooms</p>
+        </div>
+
+        <p><i class="material-icons">&#xe55f;</i>{{property.prop_location}}</p>
+        <button class="e-btn" type="submit">Email Realtor</button>
+    </div>
+</div>
+{% endblock %}
